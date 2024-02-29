@@ -11,14 +11,7 @@ Resource    ../../helpers/dependencies.robot    # Importação do arquivo depend
 
 *** Variables ***
 
-${browser}       browser
-
 *** Keywords ***
-
-DADO que acesso o "${ambiente}"
-
-    Open Browser Selecting Location    ${URL}[${ambiente}]    ${browser}    LOCAL
-    Maximize Browser Window
 
 QUANDO busco por um artigo "${texto}"
 

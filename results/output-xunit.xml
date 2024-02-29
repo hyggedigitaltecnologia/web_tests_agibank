@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Pesquisa Tests" tests="2" errors="0" failures="1" skipped="0" time="69.036" timestamp="2024-02-29T13:34:18.310460">
+<testcase classname="Pesquisa Tests" name="CT001 - Teste de Pesquisa com Termos Validos" time="64.458">
+<failure message="*** Elemento &quot;xpath=//p[contains(.,'Lamentamos, mas nada foi encontrado para sua pesquisa, tente novamente com outras palavras.')]&quot; não visível após 60 segundos" type="AssertionError"/>
+</testcase>
+<testcase classname="Pesquisa Tests" name="CT002 - Teste de Pesquisa com Termos Invalidos" time="3.965">
+</testcase>
+</testsuite>

@@ -1,0 +1,1 @@
+[{"uid":"3226a216d7c15b43","name":"CT002 - Teste de Pesquisa com Termos Invalidos","time":{"start":1709224523380,"stop":1709224527344,"duration":3964},"status":"passed","severity":"normal"},{"uid":"ce9ee6e604565af3","name":"CT001 - Teste de Pesquisa com Termos Validos","time":{"start":1709224458918,"stop":1709224523377,"duration":64459},"status":"failed","severity":"normal"}]
