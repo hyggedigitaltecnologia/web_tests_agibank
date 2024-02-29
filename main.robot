@@ -13,10 +13,8 @@ Library     OperatingSystem    # Uma biblioteca que fornece palavras-chave para 
 Library     SeleniumLibrary    # SeleniumLibrary é uma biblioteca de teste da Web para Robot Framework.
 Library     String    # Biblioteca para gerar, modificar e verificar strings.
 Library     DateTime    # Biblioteca para conversões de data e hora.
-Library     DatabaseLibrary    # Biblioteca baseada em Python para teste de banco de dados.
 Library     FakerLibrary    locale=pt_BR    # Biblioteca Faker para geração de dados aleatórios
 Library     BuiltIn    #Uma biblioteca padrão sempre disponível com palavras-chave frequentemente necessárias.
-Library     RequestsLibrary    #Biblioteca fornece funcionalidades de teste de API HTTP envolvendo solicitações Python.
 Library     XML
 
 ### Bibliotecas personalizadas
