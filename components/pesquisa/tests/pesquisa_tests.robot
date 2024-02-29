@@ -12,7 +12,6 @@ Resource    ../../../helpers/dependencies.robot    # Importação do arquivo dep
 *** Test Cases ***
 
 CT001 - Teste de Pesquisa com Termos Validos
-    [Documentation]    Valida pesquisa com termos validos.
     [Tags]    test    pesquisa_valida
 
     DADO que acesso o "blog do Agi"
@@ -20,7 +19,6 @@ CT001 - Teste de Pesquisa com Termos Validos
     ENTAO valido carregamento com "sucesso"
 
 CT002 - Teste de Pesquisa com Termos Invalidos
-    [Documentation]    Valida pesquisa com termos invalidos.
     [Tags]    test    pesquisa_invalida
 
     DADO que acesso o "blog do Agi"

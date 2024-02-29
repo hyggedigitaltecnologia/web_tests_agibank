@@ -37,8 +37,6 @@ Run Tests
     ...                marcados para exeucção no Data Manager
     [Arguments]    ${componente}    ${tag}    ${browser}
 
-    Passed Log    Chegou aqui
-
     ${date}    Get Current Date    result_format=%d%m%Y%H%M%S    # Captura data/hora atual
     ${cmd}    Set Variable    robot --listener allure_robotframework -i ${tag} -d ./results -x output-xunit.xml --variable BROWSER:${browser} components/${componente}    # Cria pasta com data/hora atual dentro de results para armazenar o relatório
     ${cmd_allure}    Set Variable    allure generate --clean ./output/allure -o allure-report/    # Cria pasta com data/hora atual dentro de results para armazenar o relatório
