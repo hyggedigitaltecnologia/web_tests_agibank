@@ -1,6 +1,7 @@
 name: Run WEB Tests
 run-name: Agi - Web Tests Run
 on: [push]
+
 jobs:
   test:
     steps:
