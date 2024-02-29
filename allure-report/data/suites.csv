@@ -1,3 +1,0 @@
-"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"passed","Thu Feb 29 13:35:23 BRT 2024","Thu Feb 29 13:35:27 BRT 2024","3964","","Pesquisa Tests","","","","CT002 - Teste de Pesquisa com Termos Invalidos","Valida pesquisa com termos invalidos."
-"failed","Thu Feb 29 13:34:18 BRT 2024","Thu Feb 29 13:35:23 BRT 2024","64459","","Pesquisa Tests","","","","CT001 - Teste de Pesquisa com Termos Validos","Valida pesquisa com termos validos."

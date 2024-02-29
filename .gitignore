@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+tests
+.vscode
+*.webm
+Dockerfile
+csv
+results
+output
+allure-report
+csv
