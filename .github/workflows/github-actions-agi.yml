@@ -30,7 +30,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install -U -r requirements.txt
           sudo npm install --save-dev allure-commandline
-          sudo npx allure-commandline serve
           rfbrowser init
 
       - name: Run Agi Web Tests
