@@ -9,7 +9,7 @@
 
 Resource    helpers/dependencies.robot    # Importação do arquivo main.robot que contém todas as Keywords necessárias para o nosso teste.
 
-Suite Teardown    Close Browser    All
+Test Teardown    Close Browser    All
 
 *** Variables ***
 
