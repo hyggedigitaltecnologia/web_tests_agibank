@@ -1,0 +1,651 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.12.2 on win32)" generated="2024-02-29T00:31:40.824568" rpa="false" schemaversion="5">
+<suite id="s1" name="Pesquisa Tests" source="C:\Automacao\Agibank\web_tests_agibank\components\pesquisa\tests\pesquisa_tests.robot">
+<test id="s1-t1" name="CT001 - Teste de Pesquisa com Termos Validos" line="14">
+<kw name="DADO que acesso o &quot;blog do Agi&quot;" owner="pesquisa_keywords" source_name="DADO que acesso o &quot;${ambiente}&quot;">
+<kw name="Open Browser Selecting Location" owner="custom_keywords">
+<kw name="Convert To Upper Case" owner="String">
+<msg time="2024-02-29T00:31:41.567489" level="INFO">${local} = LOCAL</msg>
+<var>${local}</var>
+<arg>${local}</arg>
+<doc>Converts string to upper case.</doc>
+<status status="PASS" start="2024-02-29T00:31:41.567489" elapsed="0.000000"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${local}&quot; == &quot;LOCAL&quot;">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-02-29T00:31:41.568488" level="INFO">Opening browser 'chrome' to base url 'https://blogdoagi.com.br/'.</msg>
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<arg>options=add_argument("--disable-dev-shm-usage"); add_argument("--no-sandbox"); add_argument("--start-maximized")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-02-29T00:31:41.567489" elapsed="3.014563"/>
+</kw>
+<status status="PASS" start="2024-02-29T00:31:41.567489" elapsed="3.015564"/>
+</branch>
+<status status="PASS" start="2024-02-29T00:31:41.567489" elapsed="3.015564"/>
+</if>
+<arg>${URL}[${ambiente}]</arg>
+<arg>${browser}</arg>
+<arg>LOCAL</arg>
+<doc>Abre navegador no ambiente local</doc>
+<status status="PASS" start="2024-02-29T00:31:41.565489" elapsed="3.017564"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-02-29T00:31:44.583053" elapsed="0.001999"/>
+</kw>
+<status status="PASS" start="2024-02-29T00:31:41.565489" elapsed="3.019563"/>
+</kw>
+<kw name="QUANDO busco por um artigo &quot;valido&quot;" owner="pesquisa_keywords" source_name="QUANDO busco por um artigo &quot;${texto}&quot;">
+<kw name="Perform Click Element" owner="custom_keywords">
+<kw name="Wait Until Element Is Visible And Return Status" owner="custom_keywords">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${element}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-02-29T00:31:44.587053" elapsed="0.022573"/>
+</kw>
+<msg time="2024-02-29T00:31:44.609626" level="INFO">${visible} = True</msg>
+<var>${visible}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${element}</arg>
+<arg>${timeout}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2024-02-29T00:31:44.587053" elapsed="0.022573"/>
+</kw>
+<if>
+<branch type="IF" condition="${screenshot} == True">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" start="2024-02-29T00:31:44.610624" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2024-02-29T00:31:44.610624" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2024-02-29T00:31:44.610624" elapsed="0.000000"/>
+</if>
+<return>
+<value>${visible}</value>
+<status status="PASS" start="2024-02-29T00:31:44.610624" elapsed="0.000000"/>
+</return>
+<msg time="2024-02-29T00:31:44.610624" level="INFO">${visible} = True</msg>
+<var>${visible}</var>
+<arg>${element}</arg>
+<arg>60</arg>
+<doc>Verifica se elemento é visível e retorna status "True/False".
+"timeout" assume 5 segundos se não for definido
+Para capturar imagem definir o parâmetro "screenshot" como "True".</doc>
+<status status="PASS" start="2024-02-29T00:31:44.587053" elapsed="0.023571"/>
+</kw>
+<if>
+<branch type="IF" condition="${visible} == True">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-02-29T00:31:44.611628" level="INFO">Clicking element 'xpath=//a[@class='slide-search astra-search-icon'][contains(.,'Pesquisar')]'.</msg>
+<arg>${element}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-02-29T00:31:44.611628" elapsed="0.046043"/>
+</kw>
+<status status="PASS" start="2024-02-29T00:31:44.610624" elapsed="0.047047"/>
+</branch>
+<branch type="ELSE">
+<kw name="Failure Log" owner="log">
+<arg>*** Não foi possível clicar no elemento "${element}"</arg>
+<doc>Loga fail no report</doc>
+<status status="NOT RUN" start="2024-02-29T00:31:44.657671" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2024-02-29T00:31:44.657671" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2024-02-29T00:31:44.610624" elapsed="0.047047"/>
+</if>
+<if>
+<branch type="IF" condition="${screenshot} == True">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2024-02-29T00:31:45.000126" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-7.png"&gt;&lt;img src="selenium-screenshot-7.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2024-02-29T00:31:44.658673" elapsed="0.341453"/>
+</kw>
+<status status="PASS" start="2024-02-29T00:31:44.657671" elapsed="0.342455"/>
+</branch>
+<status status="PASS" start="2024-02-29T00:31:44.657671" elapsed="0.342455"/>
+</if>
+<arg>${pesquisa_a_search}</arg>
+<doc>Efetua click no elemento.
+Para capturar imagem definir o parâmetro "screenshot" como "True".</doc>
+<status status="PASS" start="2024-02-29T00:31:44.586053" elapsed="0.414073"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${texto}&quot; == &quot;valido&quot;">
+<kw name="Fill Field" owner="custom_keywords">
+<kw name="Wait Until Element Is Visible And Return Status" owner="custom_keywords">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${element}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-02-29T00:31:45.002629" elapsed="0.019010"/>
+</kw>
+<msg time="2024-02-29T00:31:45.021639" level="INFO">${visible} = True</msg>
+<var>${visible}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${element}</arg>
+<arg>${timeout}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2024-02-29T00:31:45.002629" elapsed="0.019010"/>
+</kw>
+<if>
+<branch type="IF" condition="${screenshot} == True">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" start="2024-02-29T00:31:45.022639" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2024-02-29T00:31:45.021639" elapsed="0.001000"/>
+</branch>
+<status status="PASS" start="2024-02-29T00:31:45.021639" elapsed="0.001000"/>
+</if>
+<return>
+<value>${visible}</value>
+<status status="PASS" start="2024-02-29T00:31:45.022639" elapsed="0.000000"/>
+</return>
+<msg time="2024-02-29T00:31:45.022639" level="INFO">${visible} = True</msg>
+<var>${visible}</var>
+<arg>${element}</arg>
+<arg>${timeout}</arg>
+<doc>Verifica se elemento é visível e retorna status "True/False".
+"timeout" assume 5 segundos se não for definido
+Para capturar imagem definir o parâmetro "screenshot" como "True".</doc>
+<status status="PASS" start="2024-02-29T00:31:45.002126" elapsed="0.020513"/>
+</kw>
+<if>
+<branch type="IF" condition="${visible} == True">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-02-29T00:31:45.023636" level="INFO">Typing text 'Como Funciona a Portabilidade de Empréstimo Consignado?' into text field 'xpath=//input[@id='search-field']'.</msg>
+<arg>${element}</arg>
+<arg>${text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-02-29T00:31:45.022639" elapsed="0.152520"/>
+</kw>
+<status status="PASS" start="2024-02-29T00:31:45.022639" elapsed="0.152520"/>
+</branch>
+<branch type="ELSE">
+<kw name="Failure Log" owner="log">
+<arg>*** Não foi possível preencher o campo "${element}"</arg>
+<doc>Loga fail no report</doc>
+<status status="NOT RUN" start="2024-02-29T00:31:45.175159" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2024-02-29T00:31:45.175159" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2024-02-29T00:31:45.022639" elapsed="0.152520"/>
+</if>
+<if>
+<branch type="IF" condition="${screenshot} == True">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2024-02-29T00:31:45.453975" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-8.png"&gt;&lt;img src="selenium-screenshot-8.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2024-02-29T00:31:45.176158" elapsed="0.277817"/>
+</kw>
+<status status="PASS" start="2024-02-29T00:31:45.175159" elapsed="0.279819"/>
+</branch>
+<status status="PASS" start="2024-02-29T00:31:45.175159" elapsed="0.279819"/>
+</if>
+<arg>${pesquisa_ipt_field}</arg>
+<arg>${pesquisa_artigo_valido}</arg>
+<doc>Preenche input com texto.
+Para capturar imagem definir o parâmetro "screenshot" como "True".</doc>
+<status status="PASS" start="2024-02-29T00:31:45.001129" elapsed="0.453849"/>
+</kw>
+<status status="PASS" start="2024-02-29T00:31:45.001129" elapsed="0.453849"/>
+</branch>
+<branch type="ELSE IF" condition="&quot;${texto}&quot; == &quot;invalido&quot;">
+<kw name="Fill Field" owner="custom_keywords">
+<arg>${pesquisa_ipt_field}</arg>
+<arg>${pesquisa_artigo_invalido}</arg>
+<doc>Preenche input com texto.
+Para capturar imagem definir o parâmetro "screenshot" como "True".</doc>
+<status status="NOT RUN" start="2024-02-29T00:31:45.454978" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2024-02-29T00:31:45.454978" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2024-02-29T00:31:45.001129" elapsed="0.453849"/>
+</if>
+<kw name="Send Keys" owner="custom_keywords">
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2024-02-29T00:31:45.456483" level="INFO">Sending key(s) ('RETURN',) to page.</msg>
+<msg time="2024-02-29T00:31:45.456483" level="INFO">Pressing special key RETURN to browser.</msg>
+<msg time="2024-02-29T00:31:45.456483" level="INFO">Releasing special key RETURN.</msg>
+<arg>None</arg>
+<arg>${key}</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2024-02-29T00:31:45.454978" elapsed="1.156249"/>
+</kw>
+<arg>RETURN</arg>
+<status status="PASS" start="2024-02-29T00:31:45.454978" elapsed="1.156249"/>
+</kw>
+<status status="PASS" start="2024-02-29T00:31:44.586053" elapsed="2.025174"/>
+</kw>
+<kw name="ENTAO valido carregamento com &quot;sucesso&quot;" owner="pesquisa_keywords" source_name="ENTAO valido carregamento com &quot;${status}&quot;">
+<if>
+<branch type="IF" condition="&quot;${status}&quot; == &quot;sucesso&quot;">
+<kw name="Wait Until Element Is Visible And Capture Screenshot" owner="custom_keywords">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${element}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-02-29T00:31:46.613512" elapsed="0.033032"/>
+</kw>
+<msg time="2024-02-29T00:31:46.646544" level="INFO">${visible} = True</msg>
+<var>${visible}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${element}</arg>
+<arg>${timeout}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2024-02-29T00:31:46.613512" elapsed="0.033032"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2024-02-29T00:31:46.908982" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-9.png"&gt;&lt;img src="selenium-screenshot-9.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2024-02-29T00:31:46.646544" elapsed="0.262438"/>
+</kw>
+<if>
+<branch type="IF" condition="${visible} == True">
+<kw name="Passed Log" owner="log">
+<kw name="Log Console And Report" owner="log">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-02-29T00:31:46.910989" level="INFO">Visible "xpath=//a[contains(.,'Como Funciona a Portabilidade de Empréstimo Consignado?')]" element</msg>
+<arg>${msg}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-02-29T00:31:46.910989" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${msg}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-02-29T00:31:46.910989" elapsed="0.000998"/>
+</kw>
+<arg>${msg}</arg>
+<doc>Cria log no console e report</doc>
+<status status="PASS" start="2024-02-29T00:31:46.909987" elapsed="0.002000"/>
+</kw>
+<arg>Visible "${element}" element</arg>
+<doc>Loga passed no report</doc>
+<status status="PASS" start="2024-02-29T00:31:46.909987" elapsed="0.002000"/>
+</kw>
+<status status="PASS" start="2024-02-29T00:31:46.908982" elapsed="0.003005"/>
+</branch>
+<branch type="ELSE">
+<kw name="Fail" owner="BuiltIn">
+<arg>*** Elemento "${element}" não visível após ${timeout} segundos</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" start="2024-02-29T00:31:46.911987" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2024-02-29T00:31:46.911987" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2024-02-29T00:31:46.908982" elapsed="0.003005"/>
+</if>
+<arg>${pesquisa_artigo_sucesso}</arg>
+<arg>${time_out_element}</arg>
+<doc>Verifica se elemento é visível e retorna status "True/False".
+"timeout" assume 5 segundos se não for definido
+Para capturar imagem definir o parâmetro "screenshot" como "True".</doc>
+<status status="PASS" start="2024-02-29T00:31:46.613512" elapsed="0.298475"/>
+</kw>
+<status status="PASS" start="2024-02-29T00:31:46.612227" elapsed="0.299760"/>
+</branch>
+<branch type="ELSE IF" condition="&quot;${status}&quot; == &quot;falha&quot;">
+<kw name="Wait Until Element Is Visible And Capture Screenshot" owner="custom_keywords">
+<arg>${pesquisa_artigo_falha}</arg>
+<arg>${time_out_element}</arg>
+<doc>Verifica se elemento é visível e retorna status "True/False".
+"timeout" assume 5 segundos se não for definido
+Para capturar imagem definir o parâmetro "screenshot" como "True".</doc>
+<status status="NOT RUN" start="2024-02-29T00:31:46.911987" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2024-02-29T00:31:46.911987" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2024-02-29T00:31:46.612227" elapsed="0.299760"/>
+</if>
+<status status="PASS" start="2024-02-29T00:31:46.612227" elapsed="0.299760"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-02-29T00:31:46.911987" elapsed="2.104616"/>
+</kw>
+<doc>Valida pesquisa com termos validos.</doc>
+<tag>pesquisa_valida</tag>
+<tag>test</tag>
+<status status="PASS" start="2024-02-29T00:31:41.564489" elapsed="7.452114"/>
+</test>
+<test id="s1-t2" name="CT002 - Teste de Pesquisa com Termos Invalidos" line="22">
+<kw name="DADO que acesso o &quot;blog do Agi&quot;" owner="pesquisa_keywords" source_name="DADO que acesso o &quot;${ambiente}&quot;">
+<kw name="Open Browser Selecting Location" owner="custom_keywords">
+<kw name="Convert To Upper Case" owner="String">
+<msg time="2024-02-29T00:31:49.020605" level="INFO">${local} = LOCAL</msg>
+<var>${local}</var>
+<arg>${local}</arg>
+<doc>Converts string to upper case.</doc>
+<status status="PASS" start="2024-02-29T00:31:49.020605" elapsed="0.000000"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${local}&quot; == &quot;LOCAL&quot;">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-02-29T00:31:49.020605" level="INFO">Opening browser 'chrome' to base url 'https://blogdoagi.com.br/'.</msg>
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<arg>options=add_argument("--disable-dev-shm-usage"); add_argument("--no-sandbox"); add_argument("--start-maximized")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-02-29T00:31:49.020605" elapsed="2.210396"/>
+</kw>
+<status status="PASS" start="2024-02-29T00:31:49.020605" elapsed="2.211395"/>
+</branch>
+<status status="PASS" start="2024-02-29T00:31:49.020605" elapsed="2.211395"/>
+</if>
+<arg>${URL}[${ambiente}]</arg>
+<arg>${browser}</arg>
+<arg>LOCAL</arg>
+<doc>Abre navegador no ambiente local</doc>
+<status status="PASS" start="2024-02-29T00:31:49.019604" elapsed="2.212396"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-02-29T00:31:51.232000" elapsed="0.002000"/>
+</kw>
+<status status="PASS" start="2024-02-29T00:31:49.018601" elapsed="2.215399"/>
+</kw>
+<kw name="QUANDO busco por um artigo &quot;invalido&quot;" owner="pesquisa_keywords" source_name="QUANDO busco por um artigo &quot;${texto}&quot;">
+<kw name="Perform Click Element" owner="custom_keywords">
+<kw name="Wait Until Element Is Visible And Return Status" owner="custom_keywords">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${element}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-02-29T00:31:51.235999" elapsed="0.021510"/>
+</kw>
+<msg time="2024-02-29T00:31:51.258510" level="INFO">${visible} = True</msg>
+<var>${visible}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${element}</arg>
+<arg>${timeout}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2024-02-29T00:31:51.235999" elapsed="0.022511"/>
+</kw>
+<if>
+<branch type="IF" condition="${screenshot} == True">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" start="2024-02-29T00:31:51.258510" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2024-02-29T00:31:51.258510" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2024-02-29T00:31:51.258510" elapsed="0.000000"/>
+</if>
+<return>
+<value>${visible}</value>
+<status status="PASS" start="2024-02-29T00:31:51.258510" elapsed="0.000000"/>
+</return>
+<msg time="2024-02-29T00:31:51.258510" level="INFO">${visible} = True</msg>
+<var>${visible}</var>
+<arg>${element}</arg>
+<arg>60</arg>
+<doc>Verifica se elemento é visível e retorna status "True/False".
+"timeout" assume 5 segundos se não for definido
+Para capturar imagem definir o parâmetro "screenshot" como "True".</doc>
+<status status="PASS" start="2024-02-29T00:31:51.234999" elapsed="0.024511"/>
+</kw>
+<if>
+<branch type="IF" condition="${visible} == True">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-02-29T00:31:51.259510" level="INFO">Clicking element 'xpath=//a[@class='slide-search astra-search-icon'][contains(.,'Pesquisar')]'.</msg>
+<arg>${element}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-02-29T00:31:51.259510" elapsed="0.050223"/>
+</kw>
+<status status="PASS" start="2024-02-29T00:31:51.259510" elapsed="0.050223"/>
+</branch>
+<branch type="ELSE">
+<kw name="Failure Log" owner="log">
+<arg>*** Não foi possível clicar no elemento "${element}"</arg>
+<doc>Loga fail no report</doc>
+<status status="NOT RUN" start="2024-02-29T00:31:51.309733" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2024-02-29T00:31:51.309733" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2024-02-29T00:31:51.259510" elapsed="0.051224"/>
+</if>
+<if>
+<branch type="IF" condition="${screenshot} == True">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2024-02-29T00:31:51.645810" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-10.png"&gt;&lt;img src="selenium-screenshot-10.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2024-02-29T00:31:51.310734" elapsed="0.335076"/>
+</kw>
+<status status="PASS" start="2024-02-29T00:31:51.310734" elapsed="0.335076"/>
+</branch>
+<status status="PASS" start="2024-02-29T00:31:51.310734" elapsed="0.335076"/>
+</if>
+<arg>${pesquisa_a_search}</arg>
+<doc>Efetua click no elemento.
+Para capturar imagem definir o parâmetro "screenshot" como "True".</doc>
+<status status="PASS" start="2024-02-29T00:31:51.234999" elapsed="0.410811"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${texto}&quot; == &quot;valido&quot;">
+<kw name="Fill Field" owner="custom_keywords">
+<arg>${pesquisa_ipt_field}</arg>
+<arg>${pesquisa_artigo_valido}</arg>
+<doc>Preenche input com texto.
+Para capturar imagem definir o parâmetro "screenshot" como "True".</doc>
+<status status="NOT RUN" start="2024-02-29T00:31:51.647151" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2024-02-29T00:31:51.647151" elapsed="0.000000"/>
+</branch>
+<branch type="ELSE IF" condition="&quot;${texto}&quot; == &quot;invalido&quot;">
+<kw name="Fill Field" owner="custom_keywords">
+<kw name="Wait Until Element Is Visible And Return Status" owner="custom_keywords">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${element}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-02-29T00:31:51.649155" elapsed="0.021970"/>
+</kw>
+<msg time="2024-02-29T00:31:51.671125" level="INFO">${visible} = True</msg>
+<var>${visible}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${element}</arg>
+<arg>${timeout}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2024-02-29T00:31:51.648155" elapsed="0.022970"/>
+</kw>
+<if>
+<branch type="IF" condition="${screenshot} == True">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" start="2024-02-29T00:31:51.671125" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2024-02-29T00:31:51.671125" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2024-02-29T00:31:51.671125" elapsed="0.000000"/>
+</if>
+<return>
+<value>${visible}</value>
+<status status="PASS" start="2024-02-29T00:31:51.672127" elapsed="0.000000"/>
+</return>
+<msg time="2024-02-29T00:31:51.672127" level="INFO">${visible} = True</msg>
+<var>${visible}</var>
+<arg>${element}</arg>
+<arg>${timeout}</arg>
+<doc>Verifica se elemento é visível e retorna status "True/False".
+"timeout" assume 5 segundos se não for definido
+Para capturar imagem definir o parâmetro "screenshot" como "True".</doc>
+<status status="PASS" start="2024-02-29T00:31:51.648155" elapsed="0.023972"/>
+</kw>
+<if>
+<branch type="IF" condition="${visible} == True">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-02-29T00:31:51.672127" level="INFO">Typing text 'Nada foi encontrado' into text field 'xpath=//input[@id='search-field']'.</msg>
+<arg>${element}</arg>
+<arg>${text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-02-29T00:31:51.672127" elapsed="0.096842"/>
+</kw>
+<status status="PASS" start="2024-02-29T00:31:51.672127" elapsed="0.096842"/>
+</branch>
+<branch type="ELSE">
+<kw name="Failure Log" owner="log">
+<arg>*** Não foi possível preencher o campo "${element}"</arg>
+<doc>Loga fail no report</doc>
+<status status="NOT RUN" start="2024-02-29T00:31:51.770399" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2024-02-29T00:31:51.768969" elapsed="0.001430"/>
+</branch>
+<status status="PASS" start="2024-02-29T00:31:51.672127" elapsed="0.098272"/>
+</if>
+<if>
+<branch type="IF" condition="${screenshot} == True">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2024-02-29T00:31:52.131037" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-11.png"&gt;&lt;img src="selenium-screenshot-11.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2024-02-29T00:31:51.770399" elapsed="0.360638"/>
+</kw>
+<status status="PASS" start="2024-02-29T00:31:51.770399" elapsed="0.361973"/>
+</branch>
+<status status="PASS" start="2024-02-29T00:31:51.770399" elapsed="0.361973"/>
+</if>
+<arg>${pesquisa_ipt_field}</arg>
+<arg>${pesquisa_artigo_invalido}</arg>
+<doc>Preenche input com texto.
+Para capturar imagem definir o parâmetro "screenshot" como "True".</doc>
+<status status="PASS" start="2024-02-29T00:31:51.648155" elapsed="0.484217"/>
+</kw>
+<status status="PASS" start="2024-02-29T00:31:51.647151" elapsed="0.485221"/>
+</branch>
+<status status="PASS" start="2024-02-29T00:31:51.647151" elapsed="0.485221"/>
+</if>
+<kw name="Send Keys" owner="custom_keywords">
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2024-02-29T00:31:52.133379" level="INFO">Sending key(s) ('RETURN',) to page.</msg>
+<msg time="2024-02-29T00:31:52.133379" level="INFO">Pressing special key RETURN to browser.</msg>
+<msg time="2024-02-29T00:31:52.133379" level="INFO">Releasing special key RETURN.</msg>
+<arg>None</arg>
+<arg>${key}</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2024-02-29T00:31:52.133379" elapsed="1.018622"/>
+</kw>
+<arg>RETURN</arg>
+<status status="PASS" start="2024-02-29T00:31:52.132372" elapsed="1.019629"/>
+</kw>
+<status status="PASS" start="2024-02-29T00:31:51.234999" elapsed="1.917002"/>
+</kw>
+<kw name="ENTAO valido carregamento com &quot;falha&quot;" owner="pesquisa_keywords" source_name="ENTAO valido carregamento com &quot;${status}&quot;">
+<if>
+<branch type="IF" condition="&quot;${status}&quot; == &quot;sucesso&quot;">
+<kw name="Wait Until Element Is Visible And Capture Screenshot" owner="custom_keywords">
+<arg>${pesquisa_artigo_sucesso}</arg>
+<arg>${time_out_element}</arg>
+<doc>Verifica se elemento é visível e retorna status "True/False".
+"timeout" assume 5 segundos se não for definido
+Para capturar imagem definir o parâmetro "screenshot" como "True".</doc>
+<status status="NOT RUN" start="2024-02-29T00:31:53.154007" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2024-02-29T00:31:53.153006" elapsed="0.001001"/>
+</branch>
+<branch type="ELSE IF" condition="&quot;${status}&quot; == &quot;falha&quot;">
+<kw name="Wait Until Element Is Visible And Capture Screenshot" owner="custom_keywords">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${element}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-02-29T00:31:53.155007" elapsed="0.035345"/>
+</kw>
+<msg time="2024-02-29T00:31:53.190352" level="INFO">${visible} = True</msg>
+<var>${visible}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${element}</arg>
+<arg>${timeout}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2024-02-29T00:31:53.155007" elapsed="0.035345"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2024-02-29T00:31:53.379483" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-12.png"&gt;&lt;img src="selenium-screenshot-12.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2024-02-29T00:31:53.190352" elapsed="0.189131"/>
+</kw>
+<if>
+<branch type="IF" condition="${visible} == True">
+<kw name="Passed Log" owner="log">
+<kw name="Log Console And Report" owner="log">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-02-29T00:31:53.381494" level="INFO">Visible "xpath=//p[contains(.,'Lamentamos, mas nada foi encontrado para sua pesquisa, tente novamente com outras palavras.')]" element</msg>
+<arg>${msg}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-02-29T00:31:53.380488" elapsed="0.001006"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${msg}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-02-29T00:31:53.381494" elapsed="0.000000"/>
+</kw>
+<arg>${msg}</arg>
+<doc>Cria log no console e report</doc>
+<status status="PASS" start="2024-02-29T00:31:53.380488" elapsed="0.001006"/>
+</kw>
+<arg>Visible "${element}" element</arg>
+<doc>Loga passed no report</doc>
+<status status="PASS" start="2024-02-29T00:31:53.380488" elapsed="0.001006"/>
+</kw>
+<status status="PASS" start="2024-02-29T00:31:53.379483" elapsed="0.002011"/>
+</branch>
+<branch type="ELSE">
+<kw name="Fail" owner="BuiltIn">
+<arg>*** Elemento "${element}" não visível após ${timeout} segundos</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" start="2024-02-29T00:31:53.381494" elapsed="0.000999"/>
+</kw>
+<status status="NOT RUN" start="2024-02-29T00:31:53.381494" elapsed="0.000999"/>
+</branch>
+<status status="PASS" start="2024-02-29T00:31:53.379483" elapsed="0.003010"/>
+</if>
+<arg>${pesquisa_artigo_falha}</arg>
+<arg>${time_out_element}</arg>
+<doc>Verifica se elemento é visível e retorna status "True/False".
+"timeout" assume 5 segundos se não for definido
+Para capturar imagem definir o parâmetro "screenshot" como "True".</doc>
+<status status="PASS" start="2024-02-29T00:31:53.154007" elapsed="0.228486"/>
+</kw>
+<status status="PASS" start="2024-02-29T00:31:53.154007" elapsed="0.228486"/>
+</branch>
+<status status="PASS" start="2024-02-29T00:31:53.153006" elapsed="0.229487"/>
+</if>
+<status status="PASS" start="2024-02-29T00:31:53.153006" elapsed="0.229487"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-02-29T00:31:53.382493" elapsed="2.160141"/>
+</kw>
+<doc>Valida pesquisa com termos invalidos.</doc>
+<tag>pesquisa_invalida</tag>
+<tag>test</tag>
+<status status="PASS" start="2024-02-29T00:31:49.017601" elapsed="6.525033"/>
+</test>
+<status status="PASS" start="2024-02-29T00:31:40.826565" elapsed="14.717289"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">pesquisa_invalida</stat>
+<stat pass="1" fail="0" skip="0">pesquisa_valida</stat>
+<stat pass="2" fail="0" skip="0">test</stat>
+</tag>
+<suite>
+<stat pass="2" fail="0" skip="0" id="s1" name="Pesquisa Tests">Pesquisa Tests</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2024-02-29T00:31:41.558489" level="ERROR">Error in file 'C:\Automacao\Agibank\web_tests_agibank\components\pesquisa\tests\pesquisa_tests.robot' on line 10: Setting 'Test Teardown' is not allowed in resource file.</msg>
+<msg time="2024-02-29T00:31:41.559488" level="ERROR">Error in file 'C:\Automacao\Agibank\web_tests_agibank\helpers\dependencies.robot' on line 17: Error in file 'C:\Automacao\Agibank\web_tests_agibank\components\pesquisa\tests\pesquisa_tests.robot' on line 12: Resource file with 'Test Cases' section is invalid.</msg>
+</errors>
+</robot>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.12.2 on win32)" generated="2024-02-29T00:31:39.736800" rpa="false" schemaversion="5">
+<suite id="s1" name="Controller" source="C:\Automacao\Agibank\web_tests_agibank\controller.robot">
+<test id="s1-t1" name="Test Cases" line="19">
+<kw name="Run Tests" owner="dependencies">
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2024-02-29T00:31:40.469872" level="INFO">${date} = 29022024003140</msg>
+<var>${date}</var>
+<arg>result_format=%d%m%Y%H%M%S</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2024-02-29T00:31:40.469872" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-02-29T00:31:40.469872" level="INFO">${cmd} = robot -i test -d ./results --variable browser:chrome components/pesquisa/tests/pesquisa_tests.robot</msg>
+<var>${cmd}</var>
+<arg>robot -i ${tag} -d ./results --variable browser:${browser} components/${componente}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-02-29T00:31:40.469872" elapsed="0.000000"/>
+</kw>
+<kw name="Run Command Lines" owner="command">
+<msg time="2024-02-29T00:31:55.712869" level="INFO">0</msg>
+<arg>${cmd}</arg>
+<status status="PASS" start="2024-02-29T00:31:40.470872" elapsed="15.241997"/>
+</kw>
+<arg>${COMPONENTE}</arg>
+<arg>${TAG}</arg>
+<arg>${BROWSER}</arg>
+<doc>Lê e massa de dados e exucuta casos de teste,
+marcados para exeucção no Data Manager</doc>
+<status status="PASS" start="2024-02-29T00:31:40.467873" elapsed="15.246427"/>
+</kw>
+<status status="PASS" start="2024-02-29T00:31:40.466873" elapsed="15.247427"/>
+</test>
+<status status="PASS" start="2024-02-29T00:31:39.737808" elapsed="15.978497"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Controller">Controller</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2024-02-29T00:31:40.460872" level="ERROR">Error in file 'C:\Automacao\Agibank\web_tests_agibank\components\pesquisa\tests\pesquisa_tests.robot' on line 10: Setting 'Test Teardown' is not allowed in resource file.</msg>
+<msg time="2024-02-29T00:31:40.461872" level="ERROR">Error in file 'C:\Automacao\Agibank\web_tests_agibank\helpers\dependencies.robot' on line 17: Error in file 'C:\Automacao\Agibank\web_tests_agibank\components\pesquisa\tests\pesquisa_tests.robot' on line 12: Resource file with 'Test Cases' section is invalid.</msg>
+</errors>
+</robot>
