@@ -1,7 +1,7 @@
 name: Manual Run WEB Tests
 run-name: Agi - Manual Web Tests Run
 on:
-  workflow_dispatch
+  workflow_dispatch:
     inputs:
       componente:
         type: string
