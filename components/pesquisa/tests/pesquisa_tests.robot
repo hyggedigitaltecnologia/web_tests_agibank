@@ -9,6 +9,8 @@
 
 Resource    ../../../helpers/dependencies.robot    # Importação do arquivo dependencies.robot que contém todas as Keywords necessárias para o nosso teste.
 
+Suite Teardown    Close Browser    All
+
 *** Test Cases ***
 
 CT001 - Teste de Pesquisa com Termos Validos
