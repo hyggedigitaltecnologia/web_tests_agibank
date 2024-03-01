@@ -195,3 +195,7 @@ Qual é o BROWSER a ser executado?
 7. Tenha acesso ao relatório para download e os dados de execução.
 
 ![alt text](images/image-12.png)
+
+# Execução do Projeto
+
+[![Web Test Agibank](https://r2.easyimg.io/qz39s9hbb/image-20.png)](https://youtu.be/zyeVnE7Nv4M)
