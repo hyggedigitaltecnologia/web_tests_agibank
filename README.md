@@ -51,19 +51,19 @@ Abra seu VSCode e instale as seguintes extensões:
 
 1. Pylance.
 
-![alt text](image.png)
+![alt text](images/image.png)
 
 2. Python.
 
-![alt text](image-1.png)
+![alt text](images/image-1.png)
 
 3. Python Debugger.
 
-![alt text](image-2.png)
+![alt text](images/image-2.png)
 
 4. Robot Framework Language Server.
 
-![alt text](image-3.png)
+![alt text](images/image-3.png)
 
 # Clonando o projeto
 
@@ -116,7 +116,7 @@ robot --variable COMPONENTE:pesquisa/tests/pesquisa_tests.robot --variable TAG:p
 
 2. allure open
 ```
-![alt text](image-5.png)
+![alt text](images/image-5.png)
 
 # Executando no GitHub Actions
 
@@ -124,11 +124,11 @@ Acesse as [actions](https://github.com/hyggedigitaltecnologia/web_tests_agibank/
 
 1. Clique em "Manual Run WEB Tests".
 
-![alt text](image-6.png)
+![alt text](images/image-6.png)
 
 2. Clique em "Run workflow".
 
-![alt text](image-7.png)
+![alt text](images/image-7.png)
 
 3. Preencha os campos de tal forma que:
 
@@ -146,20 +146,20 @@ Qual é o BROWSER a ser executado?
 -> chrome
 ```
 
-![alt text](image-8.png)
+![alt text](images/image-8.png)
 
 4. Clique em "Run worflow".
 
-![alt text](image-9.png)
+![alt text](images/image-9.png)
 
 5. Aguarde a execução.
 
-![alt text](image-10.png)
+![alt text](images/image-10.png)
 
 6. Acesse o run.
 
-![alt text](image-11.png)
+![alt text](images/image-11.png)
 
 7. Tenha acesso ao relatório para download e os dados de execução.
 
-![alt text](image-12.png)
+![alt text](images/image-12.png)
