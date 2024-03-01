@@ -198,4 +198,4 @@ Qual é o BROWSER a ser executado?
 
 # Execução do Projeto
 
-https://github.com/hyggedigitaltecnologia/web_tests_agibank/assets/104523199/4fc6ec9a-77ab-426f-80ea-040a167de9e7
+https://github.com/hyggedigitaltecnologia/web_tests_agibank/assets/104523199/5d7d75b4-e051-45ea-9e99-ddee43132114
