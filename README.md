@@ -198,4 +198,4 @@ Qual é o BROWSER a ser executado?
 
 # Execução do Projeto
 
-![web_test_agibank (video-converter com)](https://github.com/hyggedigitaltecnologia/web_tests_agibank/assets/104523199/87d8abba-37aa-4902-8f30-531630b907be)
+https://github.com/hyggedigitaltecnologia/web_tests_agibank/assets/104523199/4fc6ec9a-77ab-426f-80ea-040a167de9e7
