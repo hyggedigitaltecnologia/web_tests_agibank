@@ -22,8 +22,8 @@ Open Browser Selecting Location
         Open Browser
         ...    ${url}
         ...    ${browser}
-        # ...    options=add_argument("--disable-dev-shm-usage"); add_argument("--no-sandbox"); add_argument("--start-maximized")
-        ...    options=add_argument("--disable-dev-shm-usage"); add_argument("--no-sandbox"); add_argument("--headless"); add_argument("--window-size=1366,768")
+        ...    options=add_argument("--disable-dev-shm-usage"); add_argument("--no-sandbox"); add_argument("--start-maximized")
+        # ...    options=add_argument("--disable-dev-shm-usage"); add_argument("--no-sandbox"); add_argument("--headless"); add_argument("--window-size=1366,768")
     END
 
 Get System

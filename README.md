@@ -2,7 +2,39 @@
 
 Este projeto de automação de testes foi desenvolvido para validar o componente de pesquisa de artigos do blog do agi. Utiliza Robotframework com Python e SeleniumWebdriver.
 
-## Configuração do Ambiente
+# Estrutura do projeto
+
+![alt text](images/image-15.png)
+
+### .github/workflows
+
+- Contém os arquivos de execução para pipeline do GitHub.
+
+### components
+
+- Contém os arquivos de test's, por componentes, a serem executados.
+
+### helpers
+
+- Contém os arquivos de configuração e keywords personalizadas.
+
+### keywords
+
+- Keywords referente aos componentes.
+
+### libraries
+
+- Bibliotecas personalizadas em Python.
+
+### pages
+
+- Page Objects referente aos componentes.
+
+### results
+
+- Resultado dos testes automatizados.
+
+# Configuração do Ambiente
 
 ### Instalando o Java mais recente
 
