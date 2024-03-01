@@ -37,7 +37,7 @@ Baixe o arquivo [RobotLibrariesInstaller.bat](https://drive.google.com/file/d/1h
 
 4. Digite `1` e clique em `Enter` no seu teclado.
 
-![alt text](image-4.png)
+![alt text](images/image-4.png)
 
 5. Aguarde a instalação. Após, pressione qualquer tecla para sair do instalador.
 
