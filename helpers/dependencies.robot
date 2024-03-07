@@ -39,9 +39,4 @@ Run Tests
 
     ${date}    Get Current Date    result_format=%d%m%Y%H%M%S    # Captura data/hora atual
     ${cmd}    Set Variable    robot --listener allure_robotframework -i ${tag} -d ./results -x output-xunit.xml --variable BROWSER:${browser} components/${componente}    # Cria pasta com data/hora atual dentro de results para armazenar o relatório
-    # ${cmd_allure}    Set Variable    allure generate --clean ./output/allure -o allure-report/    # Cria pasta com data/hora atual dentro de results para armazenar o relatório
-    # ${cmd_allure_open}    Set Variable    allure open
     Run Command Lines    ${cmd}    # Executa arquivo tests/tests.robot
-    # Run Command Lines    ${cmd_allure}
-    # Run Command Lines    ${cmd_allure_open}
-    
