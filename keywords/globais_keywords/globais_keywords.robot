@@ -10,5 +10,4 @@ ${browser}       browser
 
 DADO que acesso o "${ambiente}"
 
-    Open Browser Selecting Location    ${URL}[${ambiente}]    ${browser}    LOCAL
-    Maximize Browser Window
+    Open Browser Selecting Location    ${URL}[${ambiente}]    ${browser}

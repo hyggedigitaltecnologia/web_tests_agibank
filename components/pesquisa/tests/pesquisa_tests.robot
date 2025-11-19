@@ -1,6 +1,6 @@
 *** Settings ***
-
-Resource    ../../../helpers/dependencies.robot    # Importação do arquivo dependencies.robot que contém todas as Keywords necessárias para o nosso teste.
+# sobe três níveis: tests -> pesquisa -> components -> raiz -> helpers
+Resource    ../../../helpers/dependencies.robot
 
 *** Test Cases ***
 

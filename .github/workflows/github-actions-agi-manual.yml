@@ -26,12 +26,12 @@ jobs:
 
       - name: Install Python 3.12
         uses: actions/setup-python@v4
-        with: 
+        with:
           python-version: '3.12'
 
       - name: Install Node.js 20
         uses: actions/setup-node@v3
-        with: 
+        with:
           node-version: '20'
 
       - name: Install Requirements
@@ -47,7 +47,7 @@ jobs:
       - name: Upload Tests Results
         if: always()
         uses: actions/upload-artifact@v3
-        with: 
+        with:
           name: results-chrome
           path: ./results
           if-no-files-found: ignore
@@ -56,7 +56,7 @@ jobs:
       - name: Download Tests Results
         if: always()
         uses: actions/download-artifact@v1
-        with: 
+        with:
           name: results-chrome
 
       - name: Send Report

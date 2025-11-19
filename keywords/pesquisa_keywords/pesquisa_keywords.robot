@@ -1,3 +1,10 @@
+*** Comments ***
+
+##################################################################################################################################
+# Autor: Jhonattan Gomes
+# Decrição: Keywords referentes ao componente de pesquisa
+##################################################################################################################################
+
 *** Settings ***
 
 Resource    ../../helpers/dependencies.robot    # Importação do arquivo dependencies.robot que contém todas as Keywords necessárias para o nosso teste.
@@ -8,18 +15,24 @@ Resource    ../../helpers/dependencies.robot    # Importação do arquivo depend
 
 QUANDO busco por um artigo "${texto}"
 
-    IF    "${texto}" == "valido"
-        Fill Field    ${pesquisa_ipt_field}    ${pesquisa_artigo_valido}
-    ELSE IF    "${texto}" == "invalido"
-        Fill Field    ${pesquisa_ipt_field}    ${pesquisa_artigo_invalido}
+    Esperar Pagina Carregada
+
+    Abrir Campo De Pesquisa
+
+    IF    '${texto}' == 'valido'
+        Fill Field    ${SEARCH_INPUT}    ${pesquisa_artigo_valido}
+    ELSE IF    '${texto}' == 'invalido'
+        Fill Field    ${SEARCH_INPUT}    ${pesquisa_artigo_invalido}
+    ELSE
+        Fail    Tipo de texto não mapeado: ${texto}
     END
 
-    Send Keys    RETURN
+    Press Keys    ${SEARCH_INPUT}    RETURN
 
 ENTAO valido carregamento com "${status}"
 
     IF    "${status}" == "sucesso"
-        Wait Until Element Is Visible And Capture Screenshot    ${pesquisa_artigo_sucesso}    ${time_out_element}
+        Wait Until Element Is Visible And Capture Screenshot    ${pesquisa_artigo_sucesso}    ${timeout_elements}
     ELSE IF    "${status}" == "falha"
-        Wait Until Element Is Visible And Capture Screenshot    ${pesquisa_artigo_falha}    ${time_out_element}
+        Wait Until Element Is Visible And Capture Screenshot    ${pesquisa_artigo_falha}    ${timeout_elements}
     END
