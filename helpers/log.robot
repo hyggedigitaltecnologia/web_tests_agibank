@@ -1,10 +1,3 @@
-*** Comments ***
-
-##################################################################################################################################
-# Autor: Jhonattan Gomes
-# Decrição: Logs de console e report
-##################################################################################################################################
-
 *** Settings ***
 
 Resource    ../main.robot    # Importação do arquivo /resources/config.robot que contém todas as Keywords necessárias para o nosso teste.

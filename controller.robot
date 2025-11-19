@@ -1,10 +1,3 @@
-*** Comments ***
-
-########################################################################################################################################################
-# Autor: Jhonattan Gomes
-# Descrição: Responsável pela letuira e execução dos casos de teste
-########################################################################################################################################################
-
 *** Settings ***
 
 Resource    helpers/dependencies.robot    # Importação do arquivo main.robot que contém todas as Keywords necessárias para o nosso teste.
@@ -15,7 +8,7 @@ Test Teardown    Close Browser
 
 ${COMPONENTE}    componente
 ${TAG}           tag
-${BROWSER}       browser         
+${BROWSER}       browser
 
 *** Test Cases ***
 
