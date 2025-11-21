@@ -44,7 +44,12 @@ jobs:
 
       - name: Run Agi Web Tests
         run: |
-          robot --variable COMPONENTE:${{ inputs.componente }} --variable TAG:${{ inputs.tag }} --variable BROWSER:${{ inputs.browser }} controller.robot
+          robot \
+            --outputdir results \
+            --variable COMPONENTE:${{ inputs.componente }} \
+            --variable TAG:${{ inputs.tag }} \
+            --variable BROWSER:${{ inputs.browser }} \
+            controller.robot
 
       - name: Upload Tests Results
         if: always()

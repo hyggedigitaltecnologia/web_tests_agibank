@@ -31,7 +31,12 @@ jobs:
 
       - name: Run Agi Web Tests
         run: |
-          robot --variable COMPONENTE:pesquisa/tests/pesquisa_tests.robot --variable TAG:test --variable BROWSER:chrome controller.robot
+          robot \
+            --outputdir results \
+            --variable COMPONENTE:pesquisa/tests/pesquisa_tests.robot \
+            --variable TAG:test \
+            --variable BROWSER:chrome \
+            controller.robot
 
       - name: Upload Tests Results
         if: always()
