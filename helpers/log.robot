@@ -8,7 +8,6 @@ Log Console And Report
     [Documentation]    Cria log no console e report
     [Arguments]    ${msg}    # Parâmetros repassados para o método.
     Log    ${msg}
-    Log To Console    ${msg}
 
 Passed Log
     [Documentation]    Loga passed no report
