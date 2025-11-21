@@ -54,13 +54,16 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: results-chrome
+          path: results-chrome
 
       - name: Send Report
         if: always()
         uses: joonvena/robotframework-reporter-action@v2.1
         with:
-          # Mesmo ajuste de caminho aqui
-          report_path: results-chrome/results
+          report_path: results-chrome
           gh_access_token: ${{ secrets.GITHUB_TOKEN }}
           sha: ${{ github.sha }}
           pull_request_id: ${{ github.event.number }}
+          summary: true
+          only_summary: false
+          show_passed_tests: true
