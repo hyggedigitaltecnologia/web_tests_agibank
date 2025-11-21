@@ -1,23 +1,39 @@
-name: Run WEB Tests
-run-name: Agi - Web Tests Run
-on: [push]
+name: Manual Run WEB Tests
+run-name: Agi - Manual Web Tests Run
+
+on:
+  workflow_dispatch:
+    inputs:
+      componente:
+        type: string
+        description: Qual é o COMPONENTE a ser executado?
+        required: true
+      tag:
+        type: string
+        description: Qual é a TAG a ser executada?
+        required: true
+      browser:
+        type: string
+        description: Qual é o BROWSER a ser executado?
+        required: true
 
 jobs:
   web-tests:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     permissions: write-all
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
       - name: Install Python 3.12
         uses: actions/setup-python@v4
-        with: 
+        with:
           python-version: '3.12'
 
       - name: Install Node.js 20
         uses: actions/setup-node@v3
-        with: 
+        with:
           node-version: '20'
 
       - name: Install Requirements
@@ -28,12 +44,12 @@ jobs:
 
       - name: Run Agi Web Tests
         run: |
-          robot --variable COMPONENTE:pesquisa/tests/pesquisa_tests.robot --variable TAG:test --variable BROWSER:chrome controller.robot
+          robot --variable COMPONENTE:${{ inputs.componente }} --variable TAG:${{ inputs.tag }} --variable BROWSER:${{ inputs.browser }} controller.robot
 
       - name: Upload Tests Results
         if: always()
         uses: actions/upload-artifact@v3
-        with: 
+        with:
           name: results-chrome
           path: ./results
           if-no-files-found: ignore
@@ -41,8 +57,8 @@ jobs:
 
       - name: Download Tests Results
         if: always()
-        uses: actions/download-artifact@v1
-        with: 
+        uses: actions/download-artifact@v4
+        with:
           name: results-chrome
 
       - name: Send Report
@@ -53,4 +69,3 @@ jobs:
           gh_access_token: ${{ secrets.GITHUB_TOKEN }}
           sha: ${{ github.sha }}
           pull_request_id: ${{ github.event.number }}
-

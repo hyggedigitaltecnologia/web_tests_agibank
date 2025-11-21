@@ -1,25 +1,14 @@
-name: Manual Run WEB Tests
-run-name: Agi - Manual Web Tests Run
+name: Run WEB Tests
+run-name: Agi - Web Tests Run
+
 on:
-  workflow_dispatch:
-    inputs:
-      componente:
-        type: string
-        description: Qual é o COMPONENTE a ser executado?
-        required: true
-      tag:
-        type: string
-        description: Qual é a TAG a ser executada?
-        required: true
-      browser:
-        type: string
-        description: Qual é o BROWSER a ser executado?
-        required: true
+  push:
 
 jobs:
   web-tests:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     permissions: write-all
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -42,7 +31,7 @@ jobs:
 
       - name: Run Agi Web Tests
         run: |
-          robot --variable COMPONENTE:${{ inputs.componente }} --variable TAG:${{ inputs.tag }} --variable BROWSER:${{ inputs.browser }} controller.robot
+          robot --variable COMPONENTE:pesquisa/tests/pesquisa_tests.robot --variable TAG:test --variable BROWSER:chrome controller.robot
 
       - name: Upload Tests Results
         if: always()
@@ -55,7 +44,7 @@ jobs:
 
       - name: Download Tests Results
         if: always()
-        uses: actions/download-artifact@v1
+        uses: actions/download-artifact@v4
         with:
           name: results-chrome
 
@@ -67,4 +56,3 @@ jobs:
           gh_access_token: ${{ secrets.GITHUB_TOKEN }}
           sha: ${{ github.sha }}
           pull_request_id: ${{ github.event.number }}
-
