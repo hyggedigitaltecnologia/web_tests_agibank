@@ -45,11 +45,13 @@ jobs:
       - name: Run Agi Web Tests
         run: |
           robot \
+            --console none \
+            --listener allure_robotframework \
             --outputdir results \
-            --variable COMPONENTE:${{ inputs.componente }} \
-            --variable TAG:${{ inputs.tag }} \
+            -x output-xunit.xml \
+            -i ${{ inputs.tag }} \
             --variable BROWSER:${{ inputs.browser }} \
-            controller.robot
+            components/${{ inputs.componente }}
 
       - name: Upload Tests Results
         if: always()
@@ -70,7 +72,9 @@ jobs:
         if: always()
         uses: joonvena/robotframework-reporter-action@v2.1
         with:
-          report_path: results-chrome
+          # IMPORTANTE: o artefato inclui a pasta "results" dentro dele,
+          # então o output.xml fica em results-chrome/results/output.xml
+          report_path: results-chrome/results
           gh_access_token: ${{ secrets.GITHUB_TOKEN }}
           sha: ${{ github.sha }}
           pull_request_id: ${{ github.event.number }}
